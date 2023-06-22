@@ -1,0 +1,23 @@
+//SPDX-License-Identifier: UNLICENSED
+pragma solidity 0.8.7;
+
+//require, revert, assert
+//- gas refund, state updates are reverted when an error is thrown
+contract ErrorHandleAssessment{
+    function testRequire(uint _i) public pure{
+        require(_i <= 10, "i should be smaller than 10");// if _i>10 we will throw an error msg as stated after comma
+    }
+
+    function testRevert(uint _i) public pure{
+        if(_i > 10){
+            revert("i should be smaller than 10");
+        }
+    }
+
+    uint public num = 123;
+    //assert is used to chk a statement that should always be true
+    function testAssert() public view{
+        assert(num == 123);// nums state variable should always be equal to 123 else there is a bug
+    }
+
+}
