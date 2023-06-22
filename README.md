@@ -15,27 +15,23 @@ Once you are on the Remix website, create a new file by clicking on the "+" icon
 
     pragma solidity 0.8.7;
     contract MyToken {
-
-        //require, revert, assert
-    //- gas refund, state updates are reverted when an error is thrown
     contract ErrorHandleAssessment{
         function testRequire(uint _i) public pure{
-            require(_i <= 10, "i should be smaller than 10");// if          _i>10 we will throw an error msg as stated after comma
-    }
+            require(_i <= 10, "i should be smaller than 10");
+        }
 
-    function testRevert(uint _i) public pure{
-        if(_i > 10){
-            revert("i should be smaller than 10");
+        function testRevert(uint _i) public pure{
+            if(_i > 10){
+                revert("i should be smaller than 10");
+            }
+        }
+
+        uint public num = 123;
+        //assert is used to chk a statement that should always be true
+        function testAssert() public view{
+            assert(num == 123);// nums state variable should always be equal to 123 else there is a bug
         }
     }
-
-    uint public num = 123;
-    //assert is used to chk a statement that should always be true
-    function testAssert() public view{
-        assert(num == 123);// nums state variable should always be equal to 123 else there is a bug
-    }
-
-}
 
 To compile the code, click on the "Solidity Compiler" tab in the left-hand sidebar. Make sure the "Compiler" option is set to "0.8.7" (or another compatible version), and then click on the "Compile ErrorHandleAssessment.sol" button.
 
